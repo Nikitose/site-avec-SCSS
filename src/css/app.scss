@@ -1,0 +1,88 @@
+@import './utils/reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+$basecolor: #121826;
+
+$colorArray: (
+  "blue": #4c85ee,
+  "fushia": #f22085,
+  "lemon": #a4d713,
+);
+
+body {
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.card {
+  overflow: hidden;
+  margin: 1rem;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+
+.card__content {
+  padding: 2rem;
+}
+
+.card__img {
+  width: 100%;
+}
+
+.card__category {
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: rgba($basecolor, 0.28);
+  margin-bottom: 0.5rem;
+}
+
+.card__title {
+  font-weight: 500  ;
+  font-size: 1.5rem;
+  color: $basecolor;
+  margin-bottom: 0.75rem;
+}
+
+.card__paragraph {
+  color: #4B5563;
+  margin-bottom: 1rem;
+}
+
+.card__links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__stats {
+  display: flex;
+}
+
+.card__link {
+  text-decoration: none;
+}
+
+@each $key, $value in $colorArray {
+    .card__link {
+        &--#{$key} {
+            color: $value;
+        } 
+    }
+}
+
+@each $key, $value in $colorArray {
+    .card__link {
+        &--#{$key}-darken {
+            color: darken($value, 20%);
+        } 
+    }
+}
+
+/**
+* Card List
+**/
+.card-list {
+  display: flex;
+  justify-content: space-around;
+}
